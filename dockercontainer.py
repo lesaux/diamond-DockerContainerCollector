@@ -14,10 +14,10 @@ except ImportError:
     import simplejson as json
 
 
-class DockerCollector(diamond.collector.Collector):
+class DockerContainerCollector(diamond.collector.Collector):
 
     def get_default_config_help(self):
-        config_help = super(DockerCollector, self).get_default_config_help()
+        config_help = super(DockerContainerCollector, self).get_default_config_help()
         config_help.update({
             'none': 'no options atm',
         })
@@ -27,7 +27,7 @@ class DockerCollector(diamond.collector.Collector):
         """
         Returns the default collector settings
         """
-        config = super(DockerCollector, self).get_default_config()
+        config = super(DockerContainerCollector, self).get_default_config()
         config.update({
             'path':     'containers',
         })
