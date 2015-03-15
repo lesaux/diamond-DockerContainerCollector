@@ -41,7 +41,7 @@ class DockerCollector(diamond.collector.Collector):
                         yield key + "." + subkey, subvalue
                 else:
                     yield key, value
-    return dict(items())
+        return dict(items())
 
 
     def collect(self):
