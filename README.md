@@ -19,5 +19,5 @@ The docker hosts metrics will be in the servers.hostname graphite path.
 The container metrics will be in the docker.hostname.containers graphite path.
 
 ```
-docker run -i -e GRAPHITE_HOST=192.168.0.78 -e GRAPHITE_PORT=2003 -e DOCKER_HOSTNAME=docker-node1 -e INTERVAL=5 -v /proc:/host_proc:ro -v /var/run/docker.sock:/var/run/docker.sock:ro docker pull lesaux/diamond-containercollector
+docker run -i -e GRAPHITE_HOST=192.168.0.78 -e GRAPHITE_PORT=2003 -e DOCKER_HOSTNAME=docker-node1 -e INTERVAL=5 -v /proc:/host_proc:ro -v /var/run/docker.sock:/var/run/docker.sock:ro lesaux/diamond-containercollector
 ```
