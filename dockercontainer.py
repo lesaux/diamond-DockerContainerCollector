@@ -78,7 +78,7 @@ class DockerContainerCollector(diamond.collector.Collector):
                 metric_name = name+".blkio."+key
                 self.publish_counter(metric_name, value)
 
-        cc = docker.Client(base_url='unix://var/run/docker.sock')
+        cc = docker.Client(base_url='unix://var/run/docker.sock', version='auto')
         dockernames=[i['Names'] for i in cc.containers()]
         threads = []
 
