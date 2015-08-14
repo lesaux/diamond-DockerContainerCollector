@@ -48,6 +48,8 @@ class DockerContainerCollector(diamond.collector.Collector):
         def print_metric(cc,name):
             data = cc.stats(name)
             metrics = json.loads(data.next())
+            if name.find("/") != -1:
+                name = name.rsplit('/',1)[1]
             #memory metrics
             self.memory = self.flatten_dict (metrics['memory_stats'])
             for key, value in self.memory.items():
