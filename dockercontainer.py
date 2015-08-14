@@ -54,7 +54,7 @@ class DockerContainerCollector(diamond.collector.Collector):
             self.memory = self.flatten_dict (metrics['memory_stats'])
             for key, value in self.memory.items():
                 metric_name = name+".memory."+key
-                self.publish_counter(metric_name, value)
+                self.publish_gauge(metric_name, value)
             #cpu metrics
             self.cpu = self.flatten_dict (metrics['cpu_stats'])
             for key, value in self.cpu.items():
