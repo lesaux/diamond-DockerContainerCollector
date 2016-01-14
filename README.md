@@ -10,8 +10,11 @@ If you wish you test it out, a container is available on the docker hub: https:/
 
 The following environment variables are being used to launch the container:
 ```
+HANDLERS=Handlers to use (e.g: diamond.handler.stats_d.StatsdHandler, defaults to diamond.handler.graphite.GraphiteHandler)
 GRAPHITE_HOST=the ip address of your graphite container.
 GRAPHITE_PORT=the port graphite listens on.
+STATSD_HOST=the ip address of your StatsD daemon.
+STATSD_PORT=the port StatsD listens on.
 DOCKER_HOSTNAME=the name of the docker host as you wish to see it in graphite.
 INTERVAL=the interval at which you wish to ship metrics.
 ```
