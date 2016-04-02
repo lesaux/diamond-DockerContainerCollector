@@ -24,3 +24,9 @@ The container metrics will be in the docker.hostname.containers graphite path.
 ```
 docker run -i -e GRAPHITE_HOST=192.168.0.78 -e GRAPHITE_PORT=2003 -e DOCKER_HOSTNAME=docker-node1 -e INTERVAL=5 -v /proc:/host_proc:ro -v /var/run/docker.sock:/var/run/docker.sock:ro lesaux/diamond-containercollector
 ```
+
+I found that in more recent docker versions (with docker-machine and boot2docker) you need to mount
+```
+-v /dev:/dev:ro
+```
+as well to monitor boot2docker-data disk space usage.
