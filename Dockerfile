@@ -18,12 +18,9 @@ RUN apt-get update && \
     apt-get install -y python-setuptools make pbuilder python-mock python-configobj python-support cdbs git python-psutil python-pip && \
     easy_install statsd && \
     pip install diamond && \
-    git clone https://github.com/lesaux/diamond-DockerContainerCollector.git && \
     sudo mkdir /usr/local/share/diamond/collectors/dockercontainer && \
     find /usr/local/share/diamond/collectors/  -type f -name "*.py" -print0 | xargs -0 sed -i 's/\/proc/\/host_proc/g' && \
     sudo pip install docker-py && \
-    cd /diamond-DockerContainerCollector && \
-    sudo cp dockercontainer.py /usr/local/share/diamond/collectors/dockercontainer/ && \
     apt-get autoremove -y git make pbuilder python-mock python-pip && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
@@ -32,6 +29,9 @@ RUN apt-get update && \
 
 #add diamond config dir
 ADD diamond /etc/diamond/
+
+#add docker container collector
+ADD dockercontainer.py /usr/local/share/diamond/collectors/dockercontainer/
 
 #startup script
 ADD config_diamond.sh /config_diamond.sh

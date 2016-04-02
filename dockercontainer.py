@@ -70,7 +70,7 @@ class DockerContainerCollector(diamond.collector.Collector):
                         self.metric_name = name+".cpu."+key+str(i)
                         self.publish_counter(self.metric_name, self.value[i])
             #network metrics
-            self.network = self.flatten_dict (metrics['network'])
+            self.network = self.flatten_dict (metrics['networks'])
             for key, value in self.network.items():
                 metric_name = name+".network."+key
                 self.publish_counter(metric_name, value)
